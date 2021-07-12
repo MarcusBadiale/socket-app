@@ -8,7 +8,7 @@
 import UIKit
 import SocketIO
 
-let kHost = "http://177.39.70.181:3001"
+let kHost = "http://10.0.0.126:3001"
 let kConnectUser = "connectUser"
 let kUserList = "userList"
 let kExitUser = "exitUser"
