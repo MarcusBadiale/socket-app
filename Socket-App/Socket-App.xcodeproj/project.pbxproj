@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,11 @@
 		AB53A4B6269BE70C009354A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53A4B5269BE70C009354A3 /* ContentView.swift */; };
 		AB53A4B8269BE70F009354A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB53A4B7269BE70F009354A3 /* Assets.xcassets */; };
 		AB53A4BB269BE70F009354A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB53A4BA269BE70F009354A3 /* Preview Assets.xcassets */; };
+		ABE82CAF269BEAD40095CB73 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = ABE82CAE269BEAD40095CB73 /* SocketIO */; };
+		ABE82CB2269BEB140095CB73 /* SocketHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE82CB1269BEB140095CB73 /* SocketHelper.swift */; };
+		ABE82CB5269BED3E0095CB73 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE82CB4269BED3E0095CB73 /* User.swift */; };
+		ABE82CB8269BED7D0095CB73 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE82CB7269BED7D0095CB73 /* UIApplication+Extension.swift */; };
+		ABE82CBA269BEE830095CB73 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE82CB9269BEE830095CB73 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,10 @@
 		AB53A4B7269BE70F009354A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB53A4BA269BE70F009354A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB53A4BC269BE70F009354A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABE82CB1269BEB140095CB73 /* SocketHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketHelper.swift; sourceTree = "<group>"; };
+		ABE82CB4269BED3E0095CB73 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ABE82CB7269BED7D0095CB73 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		ABE82CB9269BEE830095CB73 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABE82CAF269BEAD40095CB73 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +62,9 @@
 		AB53A4B2269BE70C009354A3 /* Socket-App */ = {
 			isa = PBXGroup;
 			children = (
+				ABE82CB6269BED690095CB73 /* Helpers */,
+				ABE82CB3269BED380095CB73 /* Models */,
+				ABE82CB0269BEB010095CB73 /* Networking */,
 				AB53A4B3269BE70C009354A3 /* Socket_AppApp.swift */,
 				AB53A4B5269BE70C009354A3 /* ContentView.swift */,
 				AB53A4B7269BE70F009354A3 /* Assets.xcassets */,
@@ -67,6 +80,31 @@
 				AB53A4BA269BE70F009354A3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ABE82CB0269BEB010095CB73 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				ABE82CB1269BEB140095CB73 /* SocketHelper.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		ABE82CB3269BED380095CB73 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ABE82CB4269BED3E0095CB73 /* User.swift */,
+				ABE82CB9269BEE830095CB73 /* Message.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ABE82CB6269BED690095CB73 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ABE82CB7269BED7D0095CB73 /* UIApplication+Extension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +123,9 @@
 			dependencies = (
 			);
 			name = "Socket-App";
+			packageProductDependencies = (
+				ABE82CAE269BEAD40095CB73 /* SocketIO */,
+			);
 			productName = "Socket-App";
 			productReference = AB53A4B0269BE70C009354A3 /* Socket-App.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +153,9 @@
 				Base,
 			);
 			mainGroup = AB53A4A7269BE70C009354A3;
+			packageReferences = (
+				ABE82CAD269BEAD40095CB73 /* XCRemoteSwiftPackageReference "socket" */,
+			);
 			productRefGroup = AB53A4B1269BE70C009354A3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,7 +182,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABE82CB5269BED3E0095CB73 /* User.swift in Sources */,
+				ABE82CB2269BEB140095CB73 /* SocketHelper.swift in Sources */,
 				AB53A4B6269BE70C009354A3 /* ContentView.swift in Sources */,
+				ABE82CBA269BEE830095CB73 /* Message.swift in Sources */,
+				ABE82CB8269BED7D0095CB73 /* UIApplication+Extension.swift in Sources */,
 				AB53A4B4269BE70C009354A3 /* Socket_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +376,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ABE82CAD269BEAD40095CB73 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 16.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ABE82CAE269BEAD40095CB73 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABE82CAD269BEAD40095CB73 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AB53A4A8269BE70C009354A3 /* Project object */;
 }
