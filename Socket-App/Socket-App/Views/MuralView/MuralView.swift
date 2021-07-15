@@ -16,16 +16,18 @@ struct MuralView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             HStack {
                 MessageList(viewModel: viewModel)
+                Rectangle()
+                    .frame(width: 1)
+                    .background(Color(.black))
                 UserList(viewModel: viewModel)
             }
             if viewModel.isWriter {
                 TextField("Mande uma mensagem no mural", text: $writerText, onCommit:  {
                     SocketHelper.shared.sendMessage(message: writerText, withNickname: "Escritor")
                 })
-                .frame(width: .infinity, height: nil)
                 .font(Font.system(size: 40, design: .default))
                 .multilineTextAlignment(.leading)
             }
@@ -39,25 +41,21 @@ struct UserList: View {
     @ObservedObject var viewModel: MuralViewModel
     
     var body: some View {
-        VStack {
-            ForEach(viewModel.users, id: \.self) { user in
-                VStack {
-                    HStack(spacing: 8) {
-                        Circle()
-                            .frame(width: 50, height: 50)
-                            .background(Color.green)
-                        Text(user.nickname ?? "")
-                            .lineLimit(2)
-                    }.padding()
-                    Rectangle()
-                        .frame(width: .infinity, height: 1)
-                        .background(Color(.black))
-                }
-                
+        List(viewModel.users) { user in
+            VStack {
+                HStack(spacing: 8) {
+                    Circle()
+                        .fill(Color.green)
+                        .frame(width: 20, height: 20)
+                    Text(user.nickname ?? "")
+                        .font(.system(size: 24))
+                        .lineLimit(2)
+                }.padding()
+                Rectangle()
+                    .frame(height: 1)
+                    .background(Color(.black))
             }
-        }
-//        .frame(width: UIScreen.main.bounds.width / 4, height: .infinity)
-        .background(Color(.lightGray))
+        }.frame(width: UIScreen.main.bounds.width / 4)
     }
 }
 
@@ -69,6 +67,7 @@ struct MessageList: View {
             ForEach(viewModel.messages, id: \.self) { message in
                 MessageCell(message: message)
             }
+            Spacer()
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
     }
@@ -92,7 +91,7 @@ struct MessageCell: View {
                     .font(.caption)
             }
             Rectangle()
-                .frame(width: .infinity, height: 1)
+                .frame(height: 1)
                 .background(Color(.black))
         }.padding()
     }

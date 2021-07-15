@@ -106,7 +106,6 @@ final class SocketHelper: NSObject {
                 completion(nil)
             }
         }
-        
     }
     
     func getMessage(completion: @escaping (_ messageInfo: Message?) -> Void) {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Codable, Hashable {
+struct User: Codable, Identifiable {
     var id: String?
     var isConnected: Bool?
     var nickname: String?
