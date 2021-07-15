@@ -13,6 +13,7 @@ import SocketIO
 let kHost = "http://10.0.0.125:3001"
 let kConnectUser = "connectUser"
 let kUserList = "userList"
+let kMessageList = "messageList"
 let kExitUser = "exitUser"
 
 final class SocketHelper: NSObject {
@@ -97,7 +98,40 @@ final class SocketHelper: NSObject {
         }
     }
     
-    func getMessage(completion: @escaping (_ messageInfo: Message?) -> Void) {
+    func getAllMessages(nickname: String, completion: () -> Void) {
+        guard let socket = manager?.defaultSocket else {
+            return
+        }
+        
+        socket.emit(kMessageList, nickname)
+        completion()
+    }
+    
+    func observeAllMessages(completion: @escaping (_ messages: [Message]?) -> Void) {
+        guard let socket = manager?.defaultSocket else {
+            return
+        }
+        
+        socket.on("allMessages") { [weak self] (result, ack) -> Void in
+            guard result.count > 0,
+                let _ = self,
+                let messages = result.first as? [[String: Any]],
+                let data = UIApplication.jsonData(from: messages) else {
+                    return
+            }
+            
+            do {
+                let messagesModel = try JSONDecoder().decode([Message].self, from: data)
+                completion(messagesModel)
+                
+            } catch let error {
+                print("Something happen wrong here...\(error)")
+                completion(nil)
+            }
+        }
+    }
+    
+    func observeNewMessage(completion: @escaping (_ messageInfo: Message?) -> Void) {
         
         guard let socket = manager?.defaultSocket else {
             return

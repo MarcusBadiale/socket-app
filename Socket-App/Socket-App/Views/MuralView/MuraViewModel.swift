@@ -20,17 +20,27 @@ final class MuralViewModel: ObservableObject {
         self.isWriter = isWriter
         
         getMessagesFromServer()
+        observeAllMessages()
         fetchParticipantList()
     }
     
     func getMessagesFromServer() {
-        SocketHelper.shared.getMessage { [weak self] message in
+        SocketHelper.shared.observeNewMessage { [weak self] message in
             guard let self = self,
                   let msgInfo = message else {
                 return
             }
             
             self.messages.append(msgInfo)
+        }
+    }
+    
+    func observeAllMessages() {
+        SocketHelper.shared.observeAllMessages { messages in
+            guard let messages = messages else {
+                return
+            }
+            self.messages = messages
         }
     }
     

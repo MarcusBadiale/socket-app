@@ -36,6 +36,9 @@ struct MuralView: View {
         }
         .navigationTitle(navigationTitle)
         .padding()
+        .onAppear {
+            SocketHelper.shared.getAllMessages(nickname: "") {}
+        }
     }
 }
 
