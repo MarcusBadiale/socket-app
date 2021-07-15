@@ -18,6 +18,9 @@
 		AB56B979269BF5EB002BE019 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB56B973269BF5EB002BE019 /* User.swift */; };
 		AB56B97A269BF5EB002BE019 /* SocketHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB56B975269BF5EB002BE019 /* SocketHelper.swift */; };
 		AB56B97B269BF5EB002BE019 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB56B977269BF5EB002BE019 /* UIApplication+Extension.swift */; };
+		ABC9D26426A010BC00BE87E4 /* MuralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D26326A010BC00BE87E4 /* MuralView.swift */; };
+		ABC9D26626A012CC00BE87E4 /* Landscape+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D26526A012CC00BE87E4 /* Landscape+Extensions.swift */; };
+		ABC9D26926A0137900BE87E4 /* MuraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D26826A0137900BE87E4 /* MuraViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		AB56B973269BF5EB002BE019 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AB56B975269BF5EB002BE019 /* SocketHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketHelper.swift; sourceTree = "<group>"; };
 		AB56B977269BF5EB002BE019 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		ABC9D26326A010BC00BE87E4 /* MuralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuralView.swift; sourceTree = "<group>"; };
+		ABC9D26526A012CC00BE87E4 /* Landscape+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Landscape+Extensions.swift"; sourceTree = "<group>"; };
+		ABC9D26826A0137900BE87E4 /* MuraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuraViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,14 +72,12 @@
 		AB56B959269BF5AF002BE019 /* Socket-App */ = {
 			isa = PBXGroup;
 			children = (
+				ABF6F2A3269FE0C9005856C8 /* Support */,
+				ABF6F2A2269FE0BC005856C8 /* Views */,
 				AB56B976269BF5EB002BE019 /* Helpers */,
 				AB56B971269BF5EB002BE019 /* Models */,
 				AB56B974269BF5EB002BE019 /* Networking */,
-				AB56B95A269BF5AF002BE019 /* AppDelegate.swift */,
-				AB56B95C269BF5AF002BE019 /* SceneDelegate.swift */,
-				AB56B95E269BF5AF002BE019 /* ContentView.swift */,
 				AB56B960269BF5B1002BE019 /* Assets.xcassets */,
-				AB56B965269BF5B1002BE019 /* LaunchScreen.storyboard */,
 				AB56B968269BF5B1002BE019 /* Info.plist */,
 				AB56B962269BF5B1002BE019 /* Preview Content */,
 			);
@@ -109,8 +113,37 @@
 			isa = PBXGroup;
 			children = (
 				AB56B977269BF5EB002BE019 /* UIApplication+Extension.swift */,
+				ABC9D26526A012CC00BE87E4 /* Landscape+Extensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ABC9D26726A0136800BE87E4 /* MuralView */ = {
+			isa = PBXGroup;
+			children = (
+				ABC9D26326A010BC00BE87E4 /* MuralView.swift */,
+				ABC9D26826A0137900BE87E4 /* MuraViewModel.swift */,
+			);
+			path = MuralView;
+			sourceTree = "<group>";
+		};
+		ABF6F2A2269FE0BC005856C8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB56B95E269BF5AF002BE019 /* ContentView.swift */,
+				ABC9D26726A0136800BE87E4 /* MuralView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ABF6F2A3269FE0C9005856C8 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				AB56B95C269BF5AF002BE019 /* SceneDelegate.swift */,
+				AB56B965269BF5B1002BE019 /* LaunchScreen.storyboard */,
+				AB56B95A269BF5AF002BE019 /* AppDelegate.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,9 +225,12 @@
 				AB56B97A269BF5EB002BE019 /* SocketHelper.swift in Sources */,
 				AB56B95B269BF5AF002BE019 /* AppDelegate.swift in Sources */,
 				AB56B978269BF5EB002BE019 /* Message.swift in Sources */,
+				ABC9D26926A0137900BE87E4 /* MuraViewModel.swift in Sources */,
 				AB56B95D269BF5AF002BE019 /* SceneDelegate.swift in Sources */,
+				ABC9D26626A012CC00BE87E4 /* Landscape+Extensions.swift in Sources */,
 				AB56B979269BF5EB002BE019 /* User.swift in Sources */,
 				AB56B95F269BF5AF002BE019 /* ContentView.swift in Sources */,
+				ABC9D26426A010BC00BE87E4 /* MuralView.swift in Sources */,
 				AB56B97B269BF5EB002BE019 /* UIApplication+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

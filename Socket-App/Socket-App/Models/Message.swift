@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Message: Codable {
+struct Message: Codable, Hashable {
     
     var date: String?
     var message: String?
