@@ -15,7 +15,6 @@ let kConnectUser = "connectUser"
 let kUserList = "userList"
 let kExitUser = "exitUser"
 
-
 final class SocketHelper: NSObject {
     
     static let shared = SocketHelper()
