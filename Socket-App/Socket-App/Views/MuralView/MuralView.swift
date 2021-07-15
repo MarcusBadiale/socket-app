@@ -32,7 +32,7 @@ struct MuralView: View {
                 .multilineTextAlignment(.leading)
             }
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+        //        .frame(minWidth: 0, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
         .padding()
     }
 }
@@ -55,7 +55,7 @@ struct UserList: View {
                     .frame(height: 1)
                     .background(Color(.black))
             }
-        }.frame(width: UIScreen.main.bounds.width / 4)
+        }
     }
 }
 
@@ -63,13 +63,14 @@ struct MessageList: View {
     @ObservedObject var viewModel: MuralViewModel
     
     var body: some View {
-        VStack {
-            ForEach(viewModel.messages, id: \.self) { message in
-                MessageCell(message: message)
-            }
-            Spacer()
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack {
+                ForEach(viewModel.messages, id: \.self) { message in
+                    MessageCell(message: message)
+                }
+                Spacer()
+            }.frame(width: UIScreen.main.bounds.width / 1.5)
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
     }
 }
 
@@ -79,8 +80,9 @@ struct MessageCell: View {
     var body: some View {
         VStack {
             Text(message.message ?? "")
+                .frame(minWidth: 0, maxWidth: .infinity)//, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: 100)
                 .font(.body)
-                .lineLimit(0)
+                .lineLimit(nil)
                 .padding()
                 .foregroundColor(.black)
                 .background(Color(#colorLiteral(red: 0.6549019608, green: 0.9215686275, blue: 0.9764705882, alpha: 1)))

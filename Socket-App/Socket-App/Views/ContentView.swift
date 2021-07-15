@@ -22,20 +22,21 @@ struct ContentView: View {
                     showingWriterAlert = true
                 }
                 .frame(maxWidth: .infinity, maxHeight: 60)
-                .background(Color(.red))
-                .foregroundColor(.white)
+                .background(Color(.lightGray))
+                .foregroundColor(.black)
                 
                 Button("Entrar como leitor") {
                     alertView()
                 }
                 .frame(maxWidth: .infinity, maxHeight: 60)
-                .background(Color(.red))
-                .foregroundColor(.white)
+                .background(Color(#colorLiteral(red: 0.6549019608, green: 0.9215686275, blue: 0.9764705882, alpha: 1)))
+                .foregroundColor(.black)
             
             }.padding(.horizontal)
             .alert(isPresented: $showingWriterAlert, content: {
                 Alert(title: Text("Entrar"), message: Text("Tem certeza que deseja entrar como escritor?"), primaryButton: .default(Text("Confirmar"), action: {
                     SocketHelper.shared.joinChatRoom(nickname: "Escritor", completion: {
+                        self.userNickname = "Escritor"
                         self.isWriter = true
                         self.shouldNavigate = true
                     })

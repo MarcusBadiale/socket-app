@@ -20,7 +20,7 @@ final class MuralViewModel: ObservableObject {
         self.isWriter = isWriter
         
         getMessagesFromServer()
-        fetchParticipantList(userNickname)
+        fetchParticipantList()
     }
     
     func getMessagesFromServer() {
@@ -34,7 +34,7 @@ final class MuralViewModel: ObservableObject {
         }
     }
     
-    func fetchParticipantList(_ name: String) {
+    func fetchParticipantList() {
         SocketHelper.shared.participantList {[weak self] (result: [User]?) in
             
             guard let self = self,
@@ -45,13 +45,11 @@ final class MuralViewModel: ObservableObject {
             var filterUsers: [User] = users
             
             // Removed login user from list
-            if let index = filterUsers.firstIndex(where: {$0.nickname == name}) {
+            if let index = filterUsers.firstIndex(where: {$0.nickname == self.nickname}) {
                 filterUsers.remove(at: index)
             }
             
             self.users = filterUsers
         }
     }
-    
-//    func sendMe
 }
