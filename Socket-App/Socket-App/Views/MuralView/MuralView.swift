@@ -10,8 +10,10 @@ import SwiftUI
 struct MuralView: View {
     @ObservedObject var viewModel: MuralViewModel
     @State var writerText: String = ""
+    @State var navigationTitle: String = ""
     
     init(userNickname: String, isWriter: Bool) {
+        self.navigationTitle = userNickname
         viewModel = MuralViewModel(userNickname: userNickname, isWriter: isWriter)
     }
     
@@ -32,7 +34,7 @@ struct MuralView: View {
                 .multilineTextAlignment(.leading)
             }
         }
-        //        .frame(minWidth: 0, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+        .navigationTitle(navigationTitle)
         .padding()
     }
 }
@@ -45,7 +47,7 @@ struct UserList: View {
             VStack {
                 HStack(spacing: 8) {
                     Circle()
-                        .fill(Color.green)
+                        .fill(user.isConnected ?? true ? Color.green : Color.red)
                         .frame(width: 20, height: 20)
                     Text(user.nickname ?? "")
                         .font(.system(size: 24))

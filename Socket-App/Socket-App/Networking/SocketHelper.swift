@@ -71,16 +71,6 @@ final class SocketHelper: NSObject {
         socket.emit(kConnectUser, nickname)
         completion()
     }
-        
-    func leaveChatRoom(nickname: String, completion: () -> Void) {
-        
-        guard let socket = manager?.defaultSocket else{
-            return
-        }
-        
-        socket.emit(kExitUser, nickname)
-        completion()
-    }
     
     func participantList(completion: @escaping (_ userList: [User]?) -> Void) {
         
